@@ -1,0 +1,12 @@
+{
+    "require": {
+        "mpdf/mpdf": "^8.1",
+        "ext-json": "*",
+        "twig/twig": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "ResumeCraft\\": "src/"
+        }
+    }
+}

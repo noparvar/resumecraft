@@ -1,0 +1,23 @@
+<section>
+    <bookmark content='Honors and Awards'><h3>Honors and Awards</h3>
+        {% for award in awards %}
+            <div class="item">
+                <div class="headline">
+                    <div class="award-title">
+                        <span><bookmark content="{{ award.title }}" level="1">{{ award.title }}</span><span class='colorless-comma'>, </span>
+                    </div>
+                    <div class='awarder'>
+                        <span>{{ award.awarder }}</span><span class='colorless-comma'>, </span>
+                    </div>
+                    <div class='location'>
+                        <small>{{ award.location }}<span class='colorless-comma'>, </span></small>
+                    </div>
+                    <div class='date'>
+                        {% set theDate = "1-" ~ award.fullDate.month ~ "-" ~ award.fullDate.year  %}
+                        <span>{{ theDate | date('M Y') }}</span>
+                    </div>
+                </div>
+                <p class='summary'>{{ award.summary | raw }}</p>
+            </div>
+        {% endfor %}
+</section>

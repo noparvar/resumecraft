@@ -1,0 +1,151 @@
+body {
+  line-height: normal;
+  color: #333;
+  font-family: nunito, Arial, serif;
+  padding: 0;
+  margin: 0;
+}
+
+a, a:active, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+b {
+  font-weight: bold;
+  font-style: italic;
+}
+
+ul {
+  margin: 0 0 0 6mm;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+header {
+  border-top: 1mm solid #17375e;
+  padding: 3mm 8mm 2mm;
+}
+header .name {
+  width: 50%;
+  float: left;
+}
+header .name h1 {
+  color: #17375e;
+  font-size: 1.6rem;
+  font-style: italic;
+  font-weight: normal;
+}
+header .name h2 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+header .contacts {
+  width: 25%;
+  float: left;
+  font-size: 0.8rem;
+  padding-top: 1.3mm;
+}
+
+section {
+  margin: 0 8mm;
+  padding: 2mm 0;
+  border-top: 0.25mm solid #dfdfdf;
+}
+section h3 {
+  font-size: 1.04rem;
+  color: #e74435;
+}
+
+.item {
+  margin: 1.9mm 0 0 1.5mm;
+  position: relative;
+}
+.item .headline .job-title, .item .headline .edu-study-type, .item .headline .skills-category, .item .headline .award-title {
+  width: 83mm;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #111111;
+  float: left;
+}
+.item .headline .job-company, .item .headline .edu-institution, .item .headline .skill-tem, .item .headline .awarder {
+  width: 43mm;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #444;
+  float: left;
+}
+.item .headline .date {
+  font-size: 0.9rem;
+  color: #5b9bd5;
+  display: block;
+  float: right;
+  text-align: right;
+}
+.item .headline .location {
+  color: #777;
+  float: left;
+  width: 25mm;
+  font-size: 0.85rem;
+}
+.item .headline .location a {
+  color: #e74435;
+}
+.item .summary .bullet {
+  line-height: 1.2;
+  color: #161616;
+}
+.item .summary .bullet strong {
+  color: #000;
+}
+.item p {
+  line-height: 1.2;
+  font-size: 0.85rem;
+  hyphens: none;
+}
+.item p small {
+  font-size: 0.8rem;
+}
+.item p strong {
+  color: #000000;
+}
+.item .colorless-comma {
+  color: #dfdfdf;
+}
+
+.languages .item {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.custom-icon {
+  font-size: 0.8rem;
+  font-family: customicons;
+}
+
+.red-color {
+  color: #e74435;
+}
+
+.blue-color {
+  color: #0063df;
+}
+
+.black-color {
+  color: #000000;
+}
+
+/*# sourceMappingURL=style.css.map */

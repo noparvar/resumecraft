@@ -1,0 +1,343 @@
+{
+    "config" : {
+        "pdfTitle" : "Mohsen Noparvar - PHP Developer - Resume",
+        "pdfAuthor" : "Mohsen Noparvar",
+        "pdfCreator" : "ResumeCraft",
+        "pdfSubject" : "Mohsen Noparvar's Resume",
+        "pdfKeywords" : "PHP Developer, Full-Stack Developer, Front-End Developer, Back-End Developer, WordPress Developer, Laravel Developer, PHP, JavaScript, HTML, CSS, jQuery, React, Git"
+    },
+    "personalInfo": {
+        "name": "Mohsen Noparvar",
+        "headline": "PHP Developer",
+        "email": "mohsen@noparvar.net",
+        "website": "https://www.noparvar.net",
+        "phone": "",
+        "location": "",
+        "linkedin" : "https://linkedin.com/in/noparvar",
+        "github" : "https://github.com/noparvar"
+    },
+    "experiences": [
+        {
+            "company": "Keysun Co.",
+            "position": "Full-stack PHP Developer",
+            "website": "",
+            "location": "Tehran, Iran",
+            "summaries": [
+                "Developed a web application for psychological tests; <b>Empowered 2500 users to gain mental health insights.</b>",
+                "<b>Coded 10+ psychological reports</b> in PHP; Accelerated psychologists' assessments by 80%.",
+                "Engineered intuitive user panel; <b>Improved report retrieval speed by 50%</b>.",
+                "Secured data privacy. Implemented secure storage and transmission protocols for thousands of users' test results."
+            ],
+            "isCurrentRole": true,
+            "start": {
+                "year": 2021,
+                "month": 12
+            },
+            "end": {
+                "year": 2023,
+                "month": 5
+            }
+        },
+        {
+            "company": "Life and Me Co.",
+            "position": "Wordpress And WooCommerce Developer",
+            "website": "",
+            "location": "Tehran, Iran",
+            "summaries": [
+                "Launched an e-commerce platform; <b>led to a significant 240% sales increase</b>.",
+                "Built WooCommerce plugin for real-time price calculation; <b>Reduced sale processing time by up to 70%</b>.",
+                "Enhanced data security by implementing protocols, <b>safeguarding the privacy of thousands of customers' genetic data.</b>"
+            ],
+            "isCurrentRole": false,
+            "start": {
+                "year": 2019,
+                "month": 12
+            },
+            "end": {
+                "year": 2021,
+                "month": 11
+            }
+        },
+        {
+            "company": "New Payment Co.",
+            "position": "PHP Developer",
+            "website": "",
+            "location": "Tehran, Iran",
+            "summaries": [
+                "Produced and Released WordPress plugin for Modern Economy Bank of Iran; <b>Facilitated secure online payments of hundreds of websites</b>.",
+                "<b>Leveraged SOAP and REST APIs in the development of more than 20 seamless integrations</b>; Streamlined processes, optimized efficiency, and boosted overall productivity."
+            ],
+            "isCurrentRole": false,
+            "start": {
+                "year": 2018,
+                "month": 6
+            },
+            "end": {
+                "year": 2019,
+                "month": 1
+            }
+        },
+        {
+            "company": "Rayhan Film",
+            "position": "Full-stack PHP Developer",
+            "website": "",
+            "location": "Tehran, Iran",
+            "summaries": [
+                "Designed customized theme; <b>Increased page views and provided an 82% faster, user-friendly interface</b>.",
+                "Executed SEO techniques, propelling the website into the <b>top 100 most viewed sites</b> in Iran within three months."
+            ],
+            "isCurrentRole": false,
+            "start": {
+                "year": 2017,
+                "month": 3
+            },
+            "end": {
+                "year": 2018,
+                "month": 4
+            }
+        },
+        {
+            "company": "Toranj Co.",
+            "position": "Co-founder and Full-stack PHP Developer",
+            "website": "",
+            "location": "Tehran, Iran",
+            "summaries": [
+                "Directed the company and led developer a team; <b>Achieved a 27% revenue increase</b> in one year.",
+                "<b>Designed and Created 100+ websites and web applications</b>, including a proprietary accounting app."
+            ],
+            "isCurrentRole": false,
+            "start": {
+                "year": 2011,
+                "month": 11
+            },
+            "end": {
+                "year": 2016,
+                "month": 3
+            }
+        },
+        {
+            "company": "Honarmand Newspaper",
+            "position": "Full-stack PHP Developer",
+            "website": "",
+            "location": "Tehran, Iran",
+            "summaries": [
+                "Constructed custom CMS, streamlining editorial workflow; <b>Reduced editorial workflow times by 40%</b>.",
+                "Maintained <b>10+ websites</b> for the news agency; <b>Verified high usability, accessibility, and SEO</b>."
+            ],
+            "isCurrentRole": false,
+            "start": {
+                "year": 2007,
+                "month": 5
+            },
+            "end": {
+                "year": 2011,
+                "month": 3
+            }
+        },
+        {
+            "company": "Ide Parvaran",
+            "position": "Software Developer",
+            "website": "",
+            "location": "Tehran, Iran",
+            "summaries": [
+                "Deployed custom software to collect TV advertisement data and <b>generate hundreds of budget and spending reports</b>."
+            ],
+            "isCurrentRole": false,
+            "start": {
+                "year": 2005,
+                "month": 5
+            },
+            "end": {
+                "year": 2006,
+                "month": 3
+            }
+        }
+    ],
+    "educations": [
+        {
+            "institution": "Meta",
+            "studyType": "Professional Back-End Developer",
+            "website": "https://www.coursera.org/account/accomplishments/professional-cert/DYGWVPCE97BA",
+            "icon" : "&#xe803;",
+            "showDate": true,
+            "start": {
+                "year": 2023,
+                "month": 2
+            },
+            "end": {
+                "year": 2023,
+                "month": 8
+            },
+            "showDescription" : false,
+            "description": "Professional Certificate - 9-course series by Meta. 188 hours."
+        },
+        {
+            "institution": "Meta",
+            "studyType": "Professional Front-End Developer",
+            "website": "https://www.coursera.org/account/accomplishments/professional-cert/SQR6928ZDM8K",
+            "icon" : "&#xe803;",
+            "showDate": true,
+            "start": {
+                "year": 2023,
+                "month": 3
+            },
+            "end": {
+                "year": 2023,
+                "month": 8
+            },
+            "showDescription" : false,
+            "description": "Professional Certificate - 9-course series by Meta. 176 hours."
+        },
+        {
+            "institution": "Meta",
+            "studyType": "Professional Database Engineer",
+            "website": "https://www.coursera.org/account/accomplishments/professional-cert/R4SGYLMCXVH7",
+            "icon" : "&#xe803;",
+            "showDate": true,
+            "start": {
+                "year": 2023,
+                "month": 3
+            },
+            "end": {
+                "year": 2023,
+                "month": 8
+            },
+            "showDescription" : false,
+            "description": "Professional Certificate - 9-course series by Meta. 176 hours."
+        }
+    ],
+    "skills": {
+        "Languages": [
+            {
+                "name": "PHP"
+            },
+            {
+                "name": "JavaScript"
+            },
+            {
+                "name": "HTML5"
+            },
+            {
+                "name": "CSS3"
+            },
+            {
+                "name": "SASS/SCSS"
+            }
+        ],
+        "Back-end": [
+            {
+                "name": "Web Services",
+                "items": [
+                    "SOAP",
+                    "RESTful"
+                ]
+            },
+            {
+                "name": "Web Frameworks",
+                "items": [
+                    "Laravel"
+                ]
+            },
+            {
+                "name": "Databases",
+                "items": [
+                    "MySQL",
+                    "SQLite",
+                    "MongoDB"
+                ]
+            }
+        ],
+        "Front-end": [
+            {
+                "name": "JS libraries",
+                "items": [
+                    "React",
+                    "jQuery",
+                    "etc."
+                ]
+            },
+            {
+                "name": "CSS frameworks",
+                "items": [
+                    "Bootstrap"
+                ]
+            }
+        ],
+        "Technical Skills": [
+            {
+                "name": "Container",
+                "items": [
+                    "Docker",
+                    "Docker Compose"
+                ]
+            },
+            {
+                "name": "Build Tool",
+                "items": [
+                    "Webpack"
+                ]
+            },
+            {
+                "name": "Version Controller",
+                "items": [
+                    "Git",
+                    "GitHub"
+                ]
+            }
+        ],
+        "Related Skills": [
+            {
+                "name": "WordPress"
+            },
+            {
+                "name": "WooCommerce"
+            },
+            {
+                "name": "SEO"
+            },
+            {
+                "name": "Design Patterns"
+            },
+            {
+                "name": "Adobe Photoshop"
+            },
+            {
+                "name": "Linux"
+            }
+        ]
+    },
+    "awards": [
+        {
+            "title": "Winner of the Best Website",
+            "summary": "Participated in an award competition as a candidate for best graphic design and best practical design. <b>Secured the 1st place for the best website in the food and cooking category</b>, highlighting the site's innovative features and user experience.",
+            "awarder": "Iran Web Festival",
+            "fullDate": {
+                "year": 2011,
+                "month": 10
+            },
+            "location": "Tehran, Iran"
+        }
+    ],
+    "languages": [
+        {
+            "name": "English",
+            "level": "Fluent",
+            "course": "C1"
+        },
+        {
+            "name": "German",
+            "level": "Intermediate",
+            "course": "B1"
+        },
+        {
+            "name": "Arabic",
+            "level": "Pre-intermediate",
+            "course": ""
+        },
+        {
+            "name": "Farsi",
+            "level": "Native",
+            "course": ""
+        }
+    ]
+}

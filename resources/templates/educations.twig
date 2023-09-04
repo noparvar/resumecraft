@@ -1,0 +1,43 @@
+<section>
+    <h3><bookmark content="Education" level="0">Education</h3>
+    {% for education in educations  %}
+        <div class="item">
+            <div class="headline">
+                <div class="edu-study-type">
+                    {% if education.website is not empty %}
+                        <a href="{{ education.website }}">
+                    {% endif %}
+                    <bookmark content="{{ education.studyType }}" level="1"><span>{{ education.studyType }}</span><span class="colorless-comma">, </span>
+                    {% if education.website is not empty %}
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="edu-institution">
+                    {% if education.icon is not empty %}
+                        <span class="custom-icon blue-color">{{ education.icon | raw }}</span>
+                    {% endif %}
+                    <span>{{ education.institution }}</span><span class="colorless-comma">, </span>
+                </div>
+                {% if education.location is not empty %}
+                    <div class="location">
+                        <small>{{ education.location }}<span class="colorless-comma">, </span></small>
+                    </div>
+                {% endif %}
+                {% if education.showDate %}
+                    <div class="date">
+                        {% set startDate = "1-" ~ education.start.month ~ "-" ~ education.start.year  %}
+                        <span>{{ startDate | date('M Y') }}</span>
+                        <span>-</span>
+                        {% set endDate = "1-" ~ education.end.month ~ "-" ~ education.end.year  %}
+                        <span>{{ endDate | date('M Y') }}</span>
+                    </div>
+                {% endif %}
+            </div>
+            {% if education.showDescription %}
+                <div class="description">
+                    <small>{{ education.description }}</small>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</section>

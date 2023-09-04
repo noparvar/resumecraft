@@ -1,0 +1,158 @@
+$fullNameColor: #17375e;
+$sectionHeadingColor: #e74435;
+$datesColor: #5b9bd5;
+$separatorColor: #dfdfdf;
+
+body {
+    line-height: normal;
+    color: #333;
+    font-family: nunito, Arial, serif;
+    padding: 0;
+    margin: 0;
+}
+
+a, a:active, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+b {
+    font-weight: bold;
+    font-style: italic;
+}
+
+ul {
+    margin: 0 0 0 6mm;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+header {
+    border-top: 1mm solid $fullNameColor;
+    padding: 3mm 8mm 2mm;
+    .name {
+        width: 50%;
+        float: left;
+        h1 {
+            color: $fullNameColor;
+            font-size: 1.6rem;
+            font-style: italic;
+            font-weight: normal;
+        }
+        h2 {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    }
+    .contacts {
+        width: 25%;
+        float: left;
+        font-size: 0.8rem;
+        padding-top: 1.3mm;
+    }
+}
+
+section {
+    margin: 0 8mm;
+    padding: 2mm 0;
+    border-top: 0.25mm solid $separatorColor;
+    h3 {
+        font-size: 1.04rem;
+        color: $sectionHeadingColor;
+    }
+}
+
+.item {
+    margin: 1.9mm 0 0 1.5mm;
+    position: relative;
+    .headline {
+        .job-title, .edu-study-type, .skills-category, .award-title {
+            width: 83mm;
+            display: block;
+            font-size: 0.90rem;
+            font-weight: bold;
+            color: #111111;
+            float: left;
+        }
+        .job-company, .edu-institution, .skill-tem, .awarder {
+            width: 43mm;
+            display: block;
+            font-size: 0.90rem;
+            font-weight: 300;
+            color: #444;
+            float: left;
+        }
+        .date {
+            font-size: 0.9rem;
+            color: $datesColor;
+            display: block;
+            float: right;
+            text-align: right;
+        }
+        .location {
+            color: #777;
+            float: left;
+            width: 25mm;
+            font-size: 0.85rem;
+            a {
+                color: $sectionHeadingColor;
+            }
+        }
+    }
+    .summary {
+        .bullet {
+            line-height: 1.2;
+            color: #161616;
+            strong {
+                color: #000;
+            }
+        }
+    }
+    p {
+        line-height: 1.2;
+        font-size: 0.85rem;
+        hyphens: none;
+        small {
+            font-size: 0.8rem;
+        }
+        strong {
+            color: #000000;
+        }
+    }
+    .colorless-comma {
+        color: #dfdfdf;
+    }
+}
+
+.languages .item {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.custom-icon {
+    font-size: 0.8rem;
+    font-family: customicons;
+}
+
+.red-color {
+    color: $sectionHeadingColor;
+}
+
+.blue-color {
+    color: #0063df;
+}
+
+.black-color {
+    color: #000000;
+}

@@ -1,0 +1,26 @@
+<section>
+    <h3><bookmark content="Skills" level="0">Skills</h3>
+    {% for skillsCategoryKey, skillsCategoryValue in skills %}
+        <div class="item">
+            <p class="headline">
+                <span class="skills-category"><bookmark content="{{ skillsCategoryKey }}" level="1">{{ skillsCategoryKey }}: </span>
+                {% for skillKey, skillValue  in skillsCategoryValue %}
+                    <span class="skill-tem">{{ skillValue.name }}</span>
+                    {% if skillValue.items is not empty %}
+                        {{ " (" }}
+                        {% for item in skillValue.items %}
+                            <span>{{ item }}</span>
+                            {% if loop.last != true %}
+                                <span class="black-color">, </span>
+                            {% endif %}
+                        {% endfor %}
+                        {{ ")" }}
+                    {% endif %}
+                    {% if loop.last != true %}
+                        <span class="black-color">, </span>
+                    {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+    {% endfor %}
+</section>

@@ -1,0 +1,13 @@
+<section>
+    <h3><bookmark content="Languages" level="0">Languages</h3>
+    <div class='item'>
+        {% for language in languages %}
+            <div style="float: left; width: 25%">
+                <p class="headline">
+                    <span class="job-title"><bookmark content="{{ language.name }}" level="1">{{ language.name }}</span>
+                    <span>({{ language.level }}{% if language.course is not empty %}{{ " - " ~ language.course }}{% endif %})</span>
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+</section>

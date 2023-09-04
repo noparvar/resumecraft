@@ -1,0 +1,37 @@
+<section>
+    <h3><bookmark content='Experience'>Experience</h3>
+        {% for experience in experiences %}
+
+            <div class="item">
+                <div class="headline">
+                    <div class="job-title">
+                        <bookmark content="{{ experience.company }}" level="1">{{ experience.position }}<span class="colorless-comma">, </span>
+                    </div>
+                    <div class="job-company">
+                        {{ experience.company }}<span class="colorless-comma">, </span>
+                    </div>
+                    <div class="location">
+                        <small>{{ experience.location }}<span class="colorless-comma">, </span></small>
+                    </div>
+                    <div class="date">
+                        {% set startDate = "1-" ~ experience.start.month ~ "-" ~ experience.start.year  %}
+                        <span>{{ startDate | date('M Y') }}</span>
+                        <span> - </span>
+                        {% if experience.isCurrentRole %}
+                            {{ "Present" }}
+                        {% else %}
+                            {% set endDate = "1-" ~ experience.end.month ~ "-" ~ experience.end.year  %}
+                            <span>{{ endDate | date('M Y') }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="summary">
+                    <ul>
+                        {% for summary in experience.summaries %}
+                            <li class="bullet"><small>{{ summary | raw }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+</section>
