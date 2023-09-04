@@ -7,6 +7,7 @@ use Mpdf\MpdfException;
 use Mpdf\HTMLParserMode;
 use Mpdf\Config\FontVariables;
 use Mpdf\Config\ConfigVariables;
+use Mpdf\Output\Destination;
 use Twig\Environment;
 use Twig\Error\SyntaxError;
 use Twig\Error\LoaderError;
@@ -103,8 +104,10 @@ class ResumePDFGenerator
 
             // Render different sections of the resume using Twig templates
             foreach ($templateDataMap as $templateName => $dataKey) {
-                $templateHtml = $this->twig->render($templateName, [$dataKey => $resumeData[$dataKey]]);
-                $htmlContent .= $templateHtml;
+                if (isset($resumeData[$dataKey])) {
+                    $templateHtml = $this->twig->render($templateName, [$dataKey => $resumeData[$dataKey]]);
+                    $htmlContent .= $templateHtml;
+                }
             }
 
             // Write HTML content to the PDF
@@ -113,7 +116,7 @@ class ResumePDFGenerator
 
 
             // Output the generated PDF
-            $this->mpdf->Output();
+            $this->mpdf->Output('resumecraft.pdf', Destination::INLINE);
         } catch (MpdfException $e) {
             echo "An error occurred while generating the PDF: " . $e->getMessage();
         } catch (LoaderError|RuntimeError|SyntaxError $e) {
