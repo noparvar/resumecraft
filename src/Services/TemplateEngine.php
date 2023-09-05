@@ -1,13 +1,13 @@
 <?php
 
-namespace ResumeCraft;
+namespace ResumeCraft\Services;
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 class TemplateEngine
 {
-    const PROJECT_ROOT = __DIR__ . '/..'; // Define the constant for the root directory
+    const PROJECT_ROOT = __DIR__ . '/../..'; // Define the constant for the root directory
 
     /**
      * @return Environment

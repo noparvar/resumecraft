@@ -2,7 +2,8 @@
     "require": {
         "mpdf/mpdf": "^8.1",
         "ext-json": "*",
-        "twig/twig": "^3.7"
+        "twig/twig": "^3.7",
+        "spatie/ignition": "^1.10"
     },
     "autoload": {
         "psr-4": {
