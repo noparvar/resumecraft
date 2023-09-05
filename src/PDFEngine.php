@@ -6,14 +6,17 @@ use Mpdf\Config\ConfigVariables;
 use Mpdf\Config\FontVariables;
 use Mpdf\HTMLParserMode;
 use Mpdf\Mpdf;
+use Mpdf\MpdfException;
 use Mpdf\Output\Destination;
 
 class PDFEngine
 {
     private Mpdf $mpdf;
-    private array $PDFMeta;
     const PROJECT_ROOT = __DIR__ . '/..'; // Define the constant for the root directory
 
+    /**
+     * @throws MpdfException
+     */
     public function __construct()
     {
         // Initialize Mpdf with custom configurations
@@ -49,6 +52,12 @@ class PDFEngine
         ]);
     }
 
+    /**
+     * @param $metadata
+     * @param $htmlContent
+     * @return void
+     * @throws MpdfException
+     */
     public function __invoke($metadata, $htmlContent)
     {
         // Load CSS stylesheet and resume data from JSON file
