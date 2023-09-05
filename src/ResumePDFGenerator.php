@@ -44,8 +44,7 @@ class ResumePDFGenerator
         $htmlContent = '';
         foreach ($resumeData as $dataKey => $dataValue) {
             if (in_array($dataKey, $resumeDataKeys)) {
-                $templateHtml = $this->templateEngine->twig()->render($dataKey . '.twig', [$dataKey => $dataValue]);
-                $htmlContent .= $templateHtml;
+                $htmlContent .= $this->templateEngine->twig()->render($dataKey . '.twig', [$dataKey => $dataValue]);
             }
         }
 
