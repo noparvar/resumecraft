@@ -7,7 +7,6 @@ use Twig\Loader\FilesystemLoader;
 
 class TemplateEngine
 {
-    const PROJECT_ROOT = __DIR__ . '/../..'; // Define the constant for the root directory
 
     /**
      * @return Environment
@@ -25,7 +24,7 @@ class TemplateEngine
      */
     private function getTemplatesPath(): string
     {
-        return self::PROJECT_ROOT . '/resources/templates';
+        return PROJECT_ROOT . '/resources/templates';
     }
 
     /**

@@ -12,7 +12,6 @@ use Mpdf\Output\Destination;
 class PDFEngine
 {
     private Mpdf $mpdf;
-    const PROJECT_ROOT = __DIR__ . '/../..'; // Define the constant for the root directory
 
     /**
      * @throws MpdfException
@@ -27,7 +26,7 @@ class PDFEngine
         $fontData = $defaultFontConfig['fontdata'];
 
         $this->mpdf = new Mpdf([
-            'tempDir' => self::PROJECT_ROOT . '/cache/',
+            'tempDir' => PROJECT_ROOT . '/cache/',
             'margin_left' => 0,
             'margin_right' => 0,
             'margin_top' => 0,
@@ -35,7 +34,7 @@ class PDFEngine
             'margin_header' => 0,
             'margin_footer' => 0,
             'fontDir' => array_merge($fontDirs, [
-                self::PROJECT_ROOT . '/resources/fonts/',
+                PROJECT_ROOT . '/resources/fonts/',
             ]),
             'fontdata' => $fontData + [
                     'nunito' => [
@@ -61,7 +60,7 @@ class PDFEngine
     public function __invoke($metadata, $htmlContent)
     {
         // Load CSS stylesheet and resume data from JSON file
-        $stylesheet = file_get_contents(self::PROJECT_ROOT . '/resources/css/style.css');
+        $stylesheet = file_get_contents(PROJECT_ROOT . '/resources/css/style.css');
 
 
         // Set metadata for the PDF document
