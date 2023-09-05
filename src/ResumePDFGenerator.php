@@ -13,7 +13,7 @@ use ResumeCraft\Services\TemplateEngine;
 class ResumePDFGenerator
 {
     private TemplateEngine $templateEngine;
-    
+
     /**
      * @param TemplateEngine $templateEngine
      */
@@ -31,9 +31,17 @@ class ResumePDFGenerator
      */
     public function generatePDF(string $dataFile): void
     {
-        $resumeFile = file_get_contents($dataFile);
-        $resumeData = json_decode($resumeFile, true);
+        $resumeData = json_decode(file_get_contents($dataFile), true);
 
+        $htmlContent = $this->generateHTMLContent($resumeData);
+
+        $PDFEngine = new PDFEngine();
+        $PDFEngine($this->getPDFMeta($resumeData), $htmlContent);
+
+    }
+
+    private function generateHTMLContent(array $resumeData): string
+    {
         // Define an array of template names and their corresponding resume data keys
         $resumeDataKeys = array_values(
             str_replace('.twig', '', $this->templateEngine->getTemplateList())
@@ -46,9 +54,7 @@ class ResumePDFGenerator
             }
         }
 
-        $PDFEngine = new PDFEngine();
-        $PDFEngine($this->getPDFMeta($resumeData), $htmlContent);
-
+        return $htmlContent;
     }
 
     /**
