@@ -13,16 +13,14 @@ use ResumeCraft\Services\TemplateEngine;
 class ResumePDFGenerator
 {
     private TemplateEngine $templateEngine;
-
+    
     /**
-     * Constructor.
-     * Initializes mPDF and Twig.
-     * @throws MpdfException
+     * @param TemplateEngine $templateEngine
      */
-    public function __construct()
+    public function __construct(TemplateEngine $templateEngine)
     {
         // Initialize Twig and PDF Engine
-        $this->templateEngine = new TemplateEngine();
+        $this->templateEngine = $templateEngine;
     }
 
     /**
