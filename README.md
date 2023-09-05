@@ -39,7 +39,17 @@ cd resumecraft
 composer install
 ```
 
-4. Customize your resume data by editing the data.json file located in the project root. You can structure your resume data as per the provided template.
+## Customize your resume
+you can customize your resume data by editing the data.json file located in the project root. You can structure your resume data as per the provided template.
+
+Please note that there are several templates available by default, based on Twig, with names matching the keys in the `data.json` file.
+
+* If you wish to remove one of the built-in resume sections, simply delete the corresponding key from the `data.json` file.
+* If you want to change the order of sections, you can rearrange the corresponding keys in the `data.json` file.
+* If you'd like to add a new template, simply create a Twig file in the `templates` directory with the same name as the corresponding key in `data.json`. The filename, without the '.twig' extension, should match the key in `data.json`.
+
+This flexibility allows you to customize your resume by modifying the data and templates according to your preferences.
+
 
 ## Usage
 
