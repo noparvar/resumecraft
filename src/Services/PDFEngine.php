@@ -1,6 +1,6 @@
 <?php
 
-namespace ResumeCraft;
+namespace ResumeCraft\Services;
 
 use Mpdf\Config\ConfigVariables;
 use Mpdf\Config\FontVariables;
@@ -12,7 +12,7 @@ use Mpdf\Output\Destination;
 class PDFEngine
 {
     private Mpdf $mpdf;
-    const PROJECT_ROOT = __DIR__ . '/..'; // Define the constant for the root directory
+    const PROJECT_ROOT = __DIR__ . '/../..'; // Define the constant for the root directory
 
     /**
      * @throws MpdfException
