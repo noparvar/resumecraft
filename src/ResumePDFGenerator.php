@@ -2,17 +2,11 @@
 
 namespace ResumeCraft;
 
-use Mpdf\Mpdf;
 use Mpdf\MpdfException;
-use Mpdf\HTMLParserMode;
-use Mpdf\Config\FontVariables;
-use Mpdf\Config\ConfigVariables;
-use Mpdf\Output\Destination;
-use Twig\Environment;
+use Throwable;
 use Twig\Error\SyntaxError;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
-use Twig\Loader\FilesystemLoader;
 
 /**
  * Class ResumePDFGenerator
@@ -20,9 +14,7 @@ use Twig\Loader\FilesystemLoader;
  */
 class ResumePDFGenerator
 {
-    private Mpdf $mpdf;
-    private Environment $twig;
-    const PROJECT_ROOT = __DIR__ . '/..'; // Define the constant for the root directory
+    private TemplateEngine $templateEngine;
 
     /**
      * Constructor.
@@ -31,43 +23,8 @@ class ResumePDFGenerator
      */
     public function __construct()
     {
-        // Initialize Mpdf with custom configurations
-        $defaultConfig = (new ConfigVariables())->getDefaults();
-        $fontDirs = $defaultConfig['fontDir'];
-
-        $defaultFontConfig = (new FontVariables())->getDefaults();
-        $fontData = $defaultFontConfig['fontdata'];
-
-        $this->mpdf = new Mpdf([
-            'tempDir' => self::PROJECT_ROOT . '/cache/',
-            'margin_left' => 0,
-            'margin_right' => 0,
-            'margin_top' => 0,
-            'margin_bottom' => 0,
-            'margin_header' => 0,
-            'margin_footer' => 0,
-            'fontDir' => array_merge($fontDirs, [
-                self::PROJECT_ROOT . '/resources/fonts/',
-            ]),
-            'fontdata' => $fontData + [
-                    'nunito' => [
-                        'R' => 'NunitoSans-Regular.ttf',
-                        'I' => 'NunitoSans-ExpandedBlack.ttf',
-                        'B' => 'NunitoSans-ExtraBold.ttf',
-                        'BI' => 'NunitoSans-ExtraBoldItalic.ttf'
-                    ],
-                    'customicons' => [
-                        'R' => 'CustomIconsForResume.ttf'
-                    ]
-                ],
-            'default_font' => 'nunito'
-        ]);
-
-        // Initialize Twig for template rendering
-        $loader = new FilesystemLoader(self::PROJECT_ROOT . '/resources/templates');
-        $this->twig = new Environment($loader, [
-            'cache' => false, // Set to '../cache/' if you want to use cache
-        ]);
+        // Initialize Twig and PDF Engine
+        $this->templateEngine = new TemplateEngine();
     }
 
     /**
@@ -78,49 +35,47 @@ class ResumePDFGenerator
     public function generatePDF(string $dataFile): void
     {
         try {
-            // Load CSS stylesheet and resume data from JSON file
-            $stylesheet = file_get_contents(self::PROJECT_ROOT . '/resources/css/style.css');
             $resumeFile = file_get_contents($dataFile);
             $resumeData = json_decode($resumeFile, true);
 
-            // Set metadata for the PDF document
-            $this->mpdf->setTitle($resumeData['config']['pdfTitle']);
-            $this->mpdf->setAuthor($resumeData['config']['pdfAuthor']);
-            $this->mpdf->setCreator($resumeData['config']['pdfCreator']);
-            $this->mpdf->setSubject($resumeData['config']['pdfSubject']);
-            $this->mpdf->setKeywords($resumeData['config']['pdfKeywords']);
-
             // Define an array of template names and their corresponding resume data keys
-            $templateDataMap = [
-                'personalInformation.twig' => 'personalInfo',
-                'workExperiences.twig' => 'experiences',
-                'educations.twig' => 'educations',
-                'skills.twig' => 'skills',
-                'awards.twig' => 'awards',
-                'languages.twig' => 'languages',
-            ];
+            $resumeDataKeys = array_values(
+                str_replace('.twig', '', $this->templateEngine->getTemplateList())
+            );
 
             $htmlContent = '';
-
-            // Render different sections of the resume using Twig templates
-            foreach ($templateDataMap as $templateName => $dataKey) {
-                if (isset($resumeData[$dataKey])) {
-                    $templateHtml = $this->twig->render($templateName, [$dataKey => $resumeData[$dataKey]]);
+            foreach ($resumeData as $dataKey => $dataValue) {
+                if (in_array($dataKey, $resumeDataKeys)) {
+                    $templateHtml = $this->templateEngine->twig()->render($dataKey . '.twig', [$dataKey => $dataValue]);
                     $htmlContent .= $templateHtml;
                 }
             }
 
-            // Write HTML content to the PDF
-            $this->mpdf->WriteHTML($stylesheet, HTMLParserMode::HEADER_CSS);
-            $this->mpdf->WriteHTML($htmlContent, HTMLParserMode::HTML_BODY);
+            $PDFEngine = new PDFEngine();
+            $PDFEngine($this->getPDFMeta($resumeData), $htmlContent);
 
 
-            // Output the generated PDF
-            $this->mpdf->Output('resumecraft.pdf', Destination::INLINE);
         } catch (MpdfException $e) {
             echo "An error occurred while generating the PDF: " . $e->getMessage();
         } catch (LoaderError|RuntimeError|SyntaxError $e) {
-            echo "An error occurred while rendering Twig template: " . $e->getMessage();
+            echo "An error occurred while rendering Twig template: " . $e->getMessage() . $e->getTraceAsString();
+        } catch (Throwable $e) {
+            echo "General Error: " . $e->getMessage();
         }
+    }
+
+    /**
+     * @param $resumeData
+     * @return array
+     */
+    private function getPDFMeta($resumeData): array
+    {
+        return [
+            'pdfTitle' => $resumeData['config']['pdfTitle'],
+            'pdfAuthor' => $resumeData['config']['pdfAuthor'],
+            'pdfCreator' => $resumeData['config']['pdfCreator'],
+            'pdfSubject' => $resumeData['config']['pdfSubject'],
+            'pdfKeywords' => $resumeData['config']['pdfKeywords'],
+        ];
     }
 }
