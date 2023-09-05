@@ -13,16 +13,18 @@ use ResumeCraft\Services\TemplateEngine;
 class ResumePDFGenerator
 {
     private TemplateEngine $templateEngine;
+    private PDFEngine $PDFEngine;
+
 
     /**
-     * Constructor.
-     * Initializes mPDF and Twig.
-     * @throws MpdfException
+     * @param $templateEngine
+     * @param $PDFEngine
      */
-    public function __construct()
+    public function __construct($templateEngine, $PDFEngine)
     {
         // Initialize Twig and PDF Engine
-        $this->templateEngine = new TemplateEngine();
+        $this->templateEngine = $templateEngine;
+        $this->PDFEngine = $PDFEngine;
     }
 
     /**
@@ -33,25 +35,11 @@ class ResumePDFGenerator
      */
     public function generatePDF(string $dataFile): void
     {
-        $resumeFile = file_get_contents($dataFile);
-        $resumeData = json_decode($resumeFile, true);
+        $resumeData = json_decode(file_get_contents($dataFile), true);
 
-        // Define an array of template names and their corresponding resume data keys
-        $resumeDataKeys = array_values(
-            str_replace('.twig', '', $this->templateEngine->getTemplateList())
-        );
+        $htmlContent = $this->templateEngine->getHTML($resumeData);
 
-        $htmlContent = '';
-        foreach ($resumeData as $dataKey => $dataValue) {
-            if (in_array($dataKey, $resumeDataKeys)) {
-                $templateHtml = $this->templateEngine->twig()->render($dataKey . '.twig', [$dataKey => $dataValue]);
-                $htmlContent .= $templateHtml;
-            }
-        }
-
-        $PDFEngine = new PDFEngine();
-        $PDFEngine($this->getPDFMeta($resumeData), $htmlContent);
-
+        $this->PDFEngine->generate($this->getPDFMeta($resumeData), $htmlContent);
     }
 
     /**

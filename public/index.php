@@ -3,10 +3,14 @@
 require_once '../vendor/autoload.php'; // Load Composer's autoloader
 
 use ResumeCraft\ResumePDFGenerator;
+use ResumeCraft\Services\PDFEngine;
+use ResumeCraft\Services\TemplateEngine;
 use Spatie\Ignition\Ignition;
 
-$generator = new ResumePDFGenerator();
+Ignition::make()->register();
+const PROJECT_ROOT = __DIR__ . '/..';
+
+$generator = new ResumePDFGenerator(new TemplateEngine(), new PDFEngine());
 $dataFile = '../data.json';
 
-Ignition::make()->register();
 $generator->generatePDF($dataFile);
