@@ -33,28 +33,11 @@ class ResumePDFGenerator
     {
         $resumeData = json_decode(file_get_contents($dataFile), true);
 
-        $htmlContent = $this->generateHTMLContent($resumeData);
+        $htmlContent = $this->templateEngine->getHTML($resumeData);
 
         $PDFEngine = new PDFEngine();
         $PDFEngine($this->getPDFMeta($resumeData), $htmlContent);
 
-    }
-
-    private function generateHTMLContent(array $resumeData): string
-    {
-        // Define an array of template names and their corresponding resume data keys
-        $resumeDataKeys = array_values(
-            str_replace('.twig', '', $this->templateEngine->getTemplateList())
-        );
-
-        $htmlContent = '';
-        foreach ($resumeData as $dataKey => $dataValue) {
-            if (in_array($dataKey, $resumeDataKeys)) {
-                $htmlContent .= $this->templateEngine->twig()->render($dataKey . '.twig', [$dataKey => $dataValue]);
-            }
-        }
-
-        return $htmlContent;
     }
 
     /**
