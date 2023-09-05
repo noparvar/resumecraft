@@ -1,6 +1,6 @@
 <?php
 
-namespace ResumeCraft\Services;
+namespace ResumeCraft\Services\PDFEngines;
 
 use Mpdf\Config\ConfigVariables;
 use Mpdf\Config\FontVariables;

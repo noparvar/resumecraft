@@ -3,8 +3,8 @@
 namespace ResumeCraft;
 
 use Mpdf\MpdfException;
-use ResumeCraft\Services\PDFEngine;
-use ResumeCraft\Services\TemplateEngine;
+use ResumeCraft\Services\PDFEngines\PDFEngine;
+use ResumeCraft\Services\TemplateEngines\TemplateEngine;
 
 /**
  * Class ResumePDFGenerator
