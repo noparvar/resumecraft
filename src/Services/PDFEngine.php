@@ -57,7 +57,7 @@ class PDFEngine
      * @return void
      * @throws MpdfException
      */
-    public function __invoke($metadata, $htmlContent)
+    public function generate($metadata, $htmlContent)
     {
         // Load CSS stylesheet and resume data from JSON file
         $stylesheet = file_get_contents(PROJECT_ROOT . '/resources/css/style.css');

@@ -13,14 +13,18 @@ use ResumeCraft\Services\TemplateEngine;
 class ResumePDFGenerator
 {
     private TemplateEngine $templateEngine;
+    private PDFEngine $PDFEngine;
+
 
     /**
-     * @param TemplateEngine $templateEngine
+     * @param $templateEngine
+     * @param $PDFEngine
      */
-    public function __construct(TemplateEngine $templateEngine)
+    public function __construct($templateEngine, $PDFEngine)
     {
         // Initialize Twig and PDF Engine
         $this->templateEngine = $templateEngine;
+        $this->PDFEngine = $PDFEngine;
     }
 
     /**
@@ -35,9 +39,7 @@ class ResumePDFGenerator
 
         $htmlContent = $this->templateEngine->getHTML($resumeData);
 
-        $PDFEngine = new PDFEngine();
-        $PDFEngine($this->getPDFMeta($resumeData), $htmlContent);
-
+        $this->PDFEngine->generate($this->getPDFMeta($resumeData), $htmlContent);
     }
 
     /**
