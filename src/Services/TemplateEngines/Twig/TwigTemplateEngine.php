@@ -1,6 +1,7 @@
 <?php
-namespace ResumeCraft\Services;
+namespace ResumeCraft\Services\TemplateEngines\Twig;
 
+use ResumeCraft\Services\TemplateEngines\TemplateEngineAdapter;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;

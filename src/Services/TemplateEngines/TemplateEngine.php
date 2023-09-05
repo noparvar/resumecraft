@@ -1,6 +1,6 @@
 <?php
 
-namespace ResumeCraft\Services;
+namespace ResumeCraft\Services\TemplateEngines;
 
 
 class TemplateEngine
