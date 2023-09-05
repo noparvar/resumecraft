@@ -3,9 +3,9 @@
 require_once '../vendor/autoload.php'; // Load Composer's autoloader
 
 use ResumeCraft\ResumePDFGenerator;
-use ResumeCraft\Services\PDFEngine;
-use ResumeCraft\Services\TemplateEngine;
-use ResumeCraft\Services\TwigTemplateEngine;
+use ResumeCraft\Services\PDFEngines\PDFEngine;
+use ResumeCraft\Services\TemplateEngines\TemplateEngine;
+use ResumeCraft\Services\TemplateEngines\Twig\TwigTemplateEngine;
 use Spatie\Ignition\Ignition;
 
 Ignition::make()->register();
