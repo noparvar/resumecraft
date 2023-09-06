@@ -1,56 +1,56 @@
 <bookmark content="Personal Information" level="0">
 <header>
     <div class="name">
-        {% if personalInfo.name is not empty %}
-            <h1><bookmark content="Name" level="1">{{ personalInfo.name }}</h1>
+        {% if personalInformation.name is not empty %}
+            <h1><bookmark content="Name" level="1">{{ personalInformation.name }}</h1>
         {% endif %}
-        {% if personalInfo.headline is not empty %}
-            <h2>{{ personalInfo.headline }}</h2>
+        {% if personalInformation.headline is not empty %}
+            <h2>{{ personalInformation.headline }}</h2>
         {% endif %}
     </div>
     <div class="contacts">
-        {% if personalInfo.email is not empty %}
+        {% if personalInformation.email is not empty %}
             <div>
                 <span class="custom-icon red-color">&#xf0e0;</span>
                 <bookmark content="Email" level="1">
-                <a href="mailto:{{ personalInfo.email }}">{{ personalInfo.email }}</a>
+                <a href="mailto:{{ personalInformation.email }}">{{ personalInformation.email }}</a>
             </div>
         {% endif %}
-        {% if personalInfo.website is not empty %}
+        {% if personalInformation.website is not empty %}
         <div>
             <span class="custom-icon red-color">&#xe802;</span>
             <bookmark content="Website" level="1">
-            <a href="{{ personalInfo.website }}">{{ personalInfo.website|replace({'https://': ''}) }}</a>
+            <a href="{{ personalInformation.website }}">{{ personalInformation.website|replace({'https://': ''}) }}</a>
         </div>
         {% endif %}
-        {% if personalInfo.phone is not empty  %}
+        {% if personalInformation.phone is not empty  %}
             <div>
                 <span class="custom-icon red-color">&#xe801;</span>
                 <bookmark content="Phone" level="1">
-                <a href="tel:{{ personalInfo.phone }}">{{ personalInfo.phone }}</a>
+                <a href="tel:{{ personalInformation.phone }}">{{ personalInformation.phone }}</a>
             </div>
         {% endif %}
     </div>
     <div class="contacts">
-        {% if personalInfo.linkedin is not empty  %}
+        {% if personalInformation.linkedin is not empty  %}
         <div>
             <span class="custom-icon red-color">&#xf30c;</span>
             <bookmark content="Linkedin Profile" level="1">
-            <a href="{{ personalInfo.linkedin }}">{{ personalInfo.linkedin|replace({'https://': ''}) }}</a>
+            <a href="{{ personalInformation.linkedin }}">{{ personalInformation.linkedin|replace({'https://': ''}) }}</a>
         </div>
         {% endif %}
-        {% if personalInfo.github is not empty  %}
+        {% if personalInformation.github is not empty  %}
         <div>
             <span class="custom-icon red-color">&#xf09b;</span>
             <bookmark content="Github" level="1">
-            <a href="{{ personalInfo.github }}">{{ personalInfo.github|replace({'https://': ''}) }}</a>
+            <a href="{{ personalInformation.github }}">{{ personalInformation.github|replace({'https://': ''}) }}</a>
         </div>
         {% endif %}
-        {% if personalInfo.location is not empty  %}
+        {% if personalInformation.location is not empty  %}
             <div>
                 <span class="custom-icon red-color">&#xe800;</span>
                 <bookmark content="Location" level="1">
-                    <span>{{ personalInfo.location }}</span>
+                    <span>{{ personalInformation.location }}</span>
             </div>
         {% endif %}
     </div>

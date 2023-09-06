@@ -6,7 +6,7 @@
         "pdfSubject" : "Mohsen Noparvar's Resume",
         "pdfKeywords" : "PHP Developer, Full-Stack Developer, Front-End Developer, Back-End Developer, WordPress Developer, Laravel Developer, PHP, JavaScript, HTML, CSS, jQuery, React, Git"
     },
-    "personalInfo": {
+    "personalInformation": {
         "name": "Mohsen Noparvar",
         "headline": "PHP Developer",
         "email": "mohsen@noparvar.net",
@@ -16,7 +16,7 @@
         "linkedin" : "https://linkedin.com/in/noparvar",
         "github" : "https://github.com/noparvar"
     },
-    "experiences": [
+    "workExperiences": [
         {
             "company": "Keysun Co.",
             "position": "Full-stack PHP Developer",
