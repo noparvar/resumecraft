@@ -111,24 +111,23 @@ section h3 {
 .item .summary .bullet strong {
   color: #000;
 }
-.item p {
+.item p, .item .languages {
   line-height: 1.2;
   font-size: 0.85rem;
   hyphens: none;
 }
-.item p small {
+.item p small, .item .languages small {
   font-size: 0.8rem;
 }
-.item p strong {
+.item p b, .item .languages b {
   color: #000000;
 }
 .item .colorless-comma {
   color: #dfdfdf;
 }
-
-.languages .item {
-  display: inline-block;
-  margin-right: 20px;
+.item .lang-name {
+  font-weight: bold;
+  color: #000000;
 }
 
 .custom-icon {
